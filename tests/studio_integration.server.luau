@@ -1,0 +1,62 @@
+-- Installed only inside HookmanIntegration. All persistence is memory-only.
+local HttpService = game:GetService("HttpService")
+local results = {}
+local function test(name, callback)
+	local ok, message = pcall(callback)
+	table.insert(results, { name = name, ok = ok, error = not ok and tostring(message) or nil })
+	if not ok then
+		warn("[HOOKMAN TEST] " .. name .. ": " .. tostring(message))
+	end
+end
+local Economy = require(script.Parent.Economy)
+local Courses = require(script.Parent.CourseService)
+local ZoneCatalog = require(game.ReplicatedStorage.Hookman.ZoneCatalog)
+local player = game.Players:GetPlayers()[1] or game.Players.PlayerAdded:Wait()
+local deadline = os.clock() + 20
+while not Economy.isReady(player) and os.clock() < deadline do
+	task.wait(0.05)
+end
+while not workspace:FindFirstChild("HookmanLobby") and os.clock() < deadline do
+	task.wait(0.05)
+end
+
+test("profile ready through real server execution", function()
+	assert(Economy.isReady(player), "Profile did not become ready")
+	assert(Economy.get(player).coins == 0)
+end)
+test("duplicate settlement rejected and persisted exactly once", function()
+	assert(Economy.beginRun(player, "settlement-test", "downtown"))
+	local awarded, saved = Economy.finishRun(player, "settlement-test", 1000, 50)
+	assert(awarded and saved)
+	assert(not Economy.finishRun(player, "settlement-test", 1000, 50))
+	local profile = Economy.get(player)
+	assert(profile.coins == 50 and profile.lifetimeScore == 1000 and profile.bestScore == 1000)
+	assert(not Economy.trySetZone(player, "downtown"), "Shop zone mutation permitted during run")
+	Economy.endRun(player, "settlement-test")
+end)
+test("nonfinite and stale settlements cannot mutate profile", function()
+	assert(Economy.beginRun(player, "validation-test", "downtown"))
+	assert(not Economy.finishRun(player, "previous-run", 1000, 50))
+	assert(not Economy.finishRun(player, "validation-test", 0 / 0, math.huge))
+	assert(Economy.get(player).coins == 50)
+	Economy.endRun(player, "validation-test")
+end)
+test("two private courses remain spatially and logically isolated", function()
+	local zone = ZoneCatalog.get("downtown")
+	local a = assert(Courses.acquire("isolation-a", 1001, 1, zone))
+	local b = assert(Courses.acquire("isolation-b", 1002, 2, zone))
+	local ok, message = pcall(function()
+		assert(a.folder ~= b.folder and (a.start.Position - b.start.Position).Magnitude > 10000)
+		assert(a.path:frame(b.start.Position).offset > 5000)
+		local name, hook = next(a.hooks)
+		assert(name and hook:IsDescendantOf(a.folder) and not hook:IsDescendantOf(b.folder))
+		Courses.release("isolation-b")
+		assert(a.folder.Parent and a.start.Parent, "Releasing B destroyed A")
+	end)
+	Courses.release("isolation-a")
+	Courses.release("isolation-b")
+	assert(ok, message)
+end)
+script:SetAttribute("Report", HttpService:JSONEncode(results))
+script:SetAttribute("Complete", true)
+print("[HOOKMAN TEST] completed " .. #results .. " integration assertions")

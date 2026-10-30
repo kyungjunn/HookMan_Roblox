@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1140" viewBox="0 0 1600 1140">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0C1118"/>
+      <stop offset="1" stop-color="#151C28"/>
+    </linearGradient>
+    <marker id="a3c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 1.2 L9 5 L0 8.8 Z" fill="#5AB4FF"/>
+    </marker>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 1.2 L9 5 L0 8.8 Z" fill="#8AA0BB"/>
+    </marker>
+    <marker id="a3g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 1.2 L9 5 L0 8.8 Z" fill="#6EE7A8"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="1140" fill="url(#bg3)"/>
+  <text x="48" y="56" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="36" font-weight="800">스윙 파이프라인  ·  예측과 권한의 분리</text>
+  <text x="48" y="94" fill="#8AA0BB" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22">로프와 비행감은 클라이언트가 즉시 만들고, 콤보·점수는 서버 관측으로만 확정한다.</text>
+
+  <rect x="40" y="122" width="1520" height="52" rx="12" fill="#1A2330"/>
+  <text x="190" y="156" text-anchor="middle" fill="#5AB4FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">PLAYER INPUT</text>
+  <text x="610" y="156" text-anchor="middle" fill="#FF6BCB" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">CLIENT PREDICTION</text>
+  <text x="1040" y="156" text-anchor="middle" fill="#6EE7A8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">SERVER AUTHORITY</text>
+  <text x="1408" y="156" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">SETTLEMENT</text>
+
+  <rect x="40" y="196" width="300" height="108" rx="16" fill="#1E3A55"/>
+  <text x="190" y="242" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="24" font-weight="800">Q / E 탭</text>
+  <text x="190" y="276" text-anchor="middle" fill="#A8C4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">홀드 0.18s 이상은 조향</text>
+
+  <rect x="380" y="196" width="460" height="108" rx="16" fill="#3A2448"/>
+  <text x="610" y="238" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">후보 훅 선택 → RopeConstraint 생성</text>
+  <text x="610" y="274" text-anchor="middle" fill="#D0B4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">길이 88% · 진입속도 보정 · AlignOrientation</text>
+
+  <rect x="880" y="196" width="420" height="108" rx="16" fill="#1E5538"/>
+  <text x="1090" y="238" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">HookService.attach</text>
+  <text x="1090" y="274" text-anchor="middle" fill="#B8DCC8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">내 코스 훅 · 거리 · 듀얼 로프 조건</text>
+
+  <rect x="1340" y="196" width="220" height="108" rx="16" fill="#3A3418"/>
+  <text x="1450" y="260" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="24" font-weight="800">accepted</text>
+
+  <line x1="340" y1="250" x2="380" y2="250" stroke="#5AB4FF" stroke-width="3" marker-end="url(#a3c)"/>
+  <line x1="840" y1="250" x2="880" y2="250" stroke="#8AA0BB" stroke-width="3" marker-end="url(#a3)"/>
+  <line x1="1300" y1="250" x2="1340" y2="250" stroke="#6EE7A8" stroke-width="3" marker-end="url(#a3g)"/>
+
+  <rect x="40" y="324" width="300" height="108" rx="16" fill="#1E3A55"/>
+  <text x="190" y="370" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="24" font-weight="800">카메라 시선 / A·D</text>
+  <text x="190" y="404" text-anchor="middle" fill="#A8C4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">속도 크기 보존 회전 조향</text>
+
+  <rect x="380" y="324" width="460" height="108" rx="16" fill="#3A2448"/>
+  <text x="610" y="366" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">진자 + 접선 VectorForce 어시스트</text>
+  <text x="610" y="402" text-anchor="middle" fill="#D0B4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">콤보가 목표속도 상한을 끌어올림</text>
+
+  <rect x="880" y="324" width="420" height="108" rx="16" fill="#1E5538"/>
+  <text x="1090" y="366" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">Heartbeat 관측</text>
+  <text x="1090" y="402" text-anchor="middle" fill="#B8DCC8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">position / velocity / time 스냅샷</text>
+
+  <rect x="1340" y="324" width="220" height="108" rx="16" fill="#3A3418"/>
+  <text x="1450" y="370" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">observation</text>
+  <text x="1450" y="402" text-anchor="middle" fill="#C8B878" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="17">클라 임펄스 무시</text>
+
+  <line x1="340" y1="378" x2="380" y2="378" stroke="#5AB4FF" stroke-width="3" marker-end="url(#a3c)"/>
+  <line x1="840" y1="378" x2="880" y2="378" stroke="#8AA0BB" stroke-width="3" marker-end="url(#a3)"/>
+  <line x1="1300" y1="378" x2="1340" y2="378" stroke="#6EE7A8" stroke-width="3" marker-end="url(#a3g)"/>
+
+  <rect x="40" y="452" width="300" height="128" rx="16" fill="#1E3A55"/>
+  <text x="190" y="504" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="24" font-weight="800">Space / RELEASE</text>
+  <text x="190" y="542" text-anchor="middle" fill="#A8C4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">목표: 최하점 이후 상승 30°</text>
+
+  <rect x="380" y="452" width="460" height="128" rx="16" fill="#3A2448"/>
+  <text x="610" y="496" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">로컬 ReleaseJudge + 사출</text>
+  <text x="610" y="528" text-anchor="middle" fill="#D0B4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">speedMul · launchUp · 곡예 각속도</text>
+  <text x="610" y="556" text-anchor="middle" fill="#D0B4DC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">플래시/FOV는 즉시. 콤보는 대기.</text>
+
+  <rect x="880" y="452" width="420" height="128" rx="16" fill="#1E5538"/>
+  <text x="1090" y="496" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">HookService.release</text>
+  <text x="1090" y="528" text-anchor="middle" fill="#B8DCC8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">부착시간 0.15–15s · 관측 0.3s 이내</text>
+  <text x="1090" y="556" text-anchor="middle" fill="#B8DCC8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">서버 관측으로 재평가. 클라 등급 불신</text>
+
+  <rect x="1340" y="452" width="220" height="128" rx="16" fill="#3A3418"/>
+  <text x="1450" y="500" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">PERFECT</text>
+  <text x="1450" y="528" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">GREAT / GOOD</text>
+  <text x="1450" y="556" text-anchor="middle" fill="#FF8A8A" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">MISS</text>
+
+  <line x1="340" y1="516" x2="380" y2="516" stroke="#5AB4FF" stroke-width="3" marker-end="url(#a3c)"/>
+  <line x1="840" y1="516" x2="880" y2="516" stroke="#8AA0BB" stroke-width="3" marker-end="url(#a3)"/>
+  <line x1="1300" y1="516" x2="1340" y2="516" stroke="#6EE7A8" stroke-width="3" marker-end="url(#a3g)"/>
+
+  <rect x="380" y="600" width="460" height="108" rx="16" fill="#101820" stroke="#3A5A78" stroke-width="2"/>
+  <text x="610" y="642" text-anchor="middle" fill="#C5D8EC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">HookmanVerdict 수신 후에만 콤보 HUD 확정</text>
+  <text x="610" y="676" text-anchor="middle" fill="#8AA0BB" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">거절된 attach는 로프 정리 + 강제 release</text>
+
+  <rect x="880" y="600" width="420" height="108" rx="16" fill="#1E5538"/>
+  <text x="1090" y="642" text-anchor="middle" fill="#E8F1FF" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">RewardRules.judge</text>
+  <text x="1090" y="676" text-anchor="middle" fill="#B8DCC8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">등급 × 콤보 × 장비 × 존 배수</text>
+
+  <rect x="1340" y="600" width="220" height="108" rx="16" fill="#3A3418"/>
+  <text x="1450" y="644" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="22" font-weight="800">run.score</text>
+  <text x="1450" y="676" text-anchor="middle" fill="#C8B878" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="17">훅당 1회만 award</text>
+
+  <line x1="840" y1="654" x2="880" y2="654" stroke="#8AA0BB" stroke-width="3" marker-end="url(#a3)"/>
+  <line x1="1300" y1="654" x2="1340" y2="654" stroke="#6EE7A8" stroke-width="3" marker-end="url(#a3g)"/>
+
+  <rect x="40" y="732" width="1520" height="176" rx="18" fill="#17202C" stroke="#2E4A66" stroke-width="2"/>
+  <text x="68" y="776" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="26" font-weight="800">판정 창  (최하점이 아니라 상승각)</text>
+  <text x="68" y="812" fill="#D7E4F5" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20">최하점 릴리즈는 수평 속도만 주고 고도를 잃는다. 목표 phi = +30°. 남은 시간 t의 절대값으로 등급.</text>
+
+  <rect x="68" y="832" width="250" height="56" rx="12" fill="#4A3A10" stroke="#FFD640" stroke-width="2"/>
+  <text x="193" y="868" text-anchor="middle" fill="#FFD640" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">PERFECT  ≤ 0.08s</text>
+  <rect x="334" y="832" width="250" height="56" rx="12" fill="#143820" stroke="#6EE7A8" stroke-width="2"/>
+  <text x="459" y="868" text-anchor="middle" fill="#6EE7A8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">GREAT  ≤ 0.20s</text>
+  <rect x="600" y="832" width="250" height="56" rx="12" fill="#1E3348" stroke="#8AA0BB" stroke-width="2"/>
+  <text x="725" y="868" text-anchor="middle" fill="#C5D8EC" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">GOOD  ≤ 0.40s</text>
+  <rect x="866" y="832" width="250" height="56" rx="12" fill="#3A1818" stroke="#FF6B6B" stroke-width="2"/>
+  <text x="991" y="868" text-anchor="middle" fill="#FF8A8A" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20" font-weight="800">MISS  &gt; 0.40s</text>
+  <text x="1148" y="854" fill="#8AA0BB" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">PERFECT/GREAT → 콤보 +1</text>
+  <text x="1148" y="880" fill="#8AA0BB" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="18">MISS → 콤보 0    GOOD → 유지</text>
+
+  <rect x="40" y="928" width="1520" height="180" rx="18" fill="#1A1410" stroke="#664428" stroke-width="2"/>
+  <text x="68" y="972" fill="#FF9F5A" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="26" font-weight="800">서버가 막는 것</text>
+  <text x="68" y="1014" fill="#E8D8C8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20">시퀀스 단조 증가 · 요청 토큰버킷 12/s burst 16</text>
+  <text x="68" y="1046" fill="#E8D8C8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20">외국 훅 / 내 코스 밖 훅 / 듀얼 로프 없이 두 줄 / 같은 면 두 줄</text>
+  <text x="68" y="1078" fill="#E8D8C8" font-family="Apple SD Gothic Neo, AppleGothic, sans-serif" font-size="20">같은 훅 반복 파밍 (scoredHooks) · 클라 사출 속도가 아닌 부착 중 관측으로 판정</text>
+</svg>
